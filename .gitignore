@@ -5,3 +5,7 @@ output/
 .env
 .env.local
 .env.*.local
+*.zip
+__pycache__/
+.pytest_cache/
+*.docx
