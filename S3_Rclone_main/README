@@ -1,0 +1,34 @@
+/**
+ * @file
+ * @brief 实现多个对象存储库之间的迁移，同时采用多线程方案。
+ * 
+ * 本文件库的主要功能是提供一种高效的解决方案，用于在多个对象存储库之间迁移数据。
+ * 通过多线程的方式，能够显著提高迁移效率，并避免由于 Rclone 文件导致的大批量文件无法迁移的问题。
+ * 
+ * This library is designed to facilitate the migration of data between multiple object storage repositories.
+ * By leveraging a multithreading approach, it ensures high efficiency and avoids issues caused by Rclone 
+ * when handling large-scale file migrations.
+ */
+# 修复单线程异常问题（2025年4月3日）
+# 此代码修复了在单线程环境中可能导致异常的问题。
+# 修复日期：2025年4月3日
+#
+# Fix for single-thread exception issue (April 3, 2025)
+# This code addresses a potential exception that could occur in a single-threaded environment.
+# Fix date: April 3, 2025
+
+# 增加容错机制
+# 增加了对文件路径错误的容错处理，确保程序在路径错误时不会崩溃。
+# Added error tolerance mechanism to handle file path errors gracefully.
+
+# 增加可执行文件
+# 提供了一个可执行文件以便于用户直接运行程序。
+# Added an executable file for user convenience.
+
+# 修复路径错误
+# 修复了由于路径拼接错误导致的文件无法访问问题。
+# Fixed file access issues caused by incorrect path concatenation.
+
+# 添加当前日期
+# 当前日期：2025年4月5日
+# Current date: April 5, 2025

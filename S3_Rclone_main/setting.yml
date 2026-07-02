@@ -1,0 +1,33 @@
+source:
+  custom_endpoint_url: "http://eos-wuxi-5-internal.cmecloud.cn"
+  custom_access_key_id: "F7362E7FCT31592PENMT"
+  custom_secret_access_key: "5D6ci5GxG6xWoKFkxLVSfVNc1yPAt88O0JzlLk4Y"
+  custom_region_name: "ksgxx"
+  use_aws: false # 源地址对象存储桶配置
+
+destination:
+  custom_endpoint_url: "http://oss1.local.cloud.scp:12001"
+  custom_access_key_id: "QFZLLMSFL44BYTJSTG9B"
+  custom_secret_access_key: "IMgvv9dZBkKFhMJYg3IQdhzhlIIBfXtp9Cg6cSym"
+  custom_region_name: "qianyitest"
+  use_aws: false # 目的地址对象存储桶配置
+
+data_migration_config:
+  chunk_size: 1000  # 数据分片大小（条目数参数限制此处最大1000）
+  max_keys: 1000  # 每次分页列出的最大文件-此为最大参数值
+  record_file_count: true  # 是否记录文件数量
+  file_name: ""  # 迁移文件名（如果有的话）
+  file_list_path: "./path/file_list.txt"  # 包含文件名称的文本文件路径
+  verify_after_migration: true  # 迁移验证后是否检验
+  thread_count: 4  # 数据迁移时使用的线程数量
+
+logging_config:
+  log_location: "./path/migration.log"  # 迁移日志记录位置
+  success_record:
+    file_path: "./path/Successful_record.txt"  # 保存迁移成功记录的文件路径
+    details:  # 记录内容
+      include_count: true  # 是否记录数量
+      include_file_count: true  # 是否记录文件数量
+      include_migration_time: true  # 是否记录迁移时间
+  error_record:
+    file_path: "./path/error_record.txt"  # 保存迁移失败记录的文件路径
