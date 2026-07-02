@@ -1,0 +1,39 @@
+scanner:
+  maxKeysPerRequest: 50           # 每次请求最大键数（减小到50以避免服务端限制）
+  maxRetries: 5                    # 最大重试次数（增加到5以提高稳定性）
+  retryDelay: 1000                 # 重试延迟（毫秒）
+  enableIncremental: true          # 是否启用增量扫描
+
+exporter:
+  type: csv
+  outputDir: ./output
+
+threadPool:
+  coreThreads: 4
+  maxThreads: 10
+  queueSize: 1000
+  keepAliveTime: 60
+
+s3:
+  endpoint: "http://oss1.local.cloud.scp:12001"  # S3端点URL（兼容所有S3协议平台，如MinIO、阿里云OSS等）
+  # region: us-east-1                   # 区域（可选，某些S3平台如深信服不需要，可留空）
+  accessKeyId: "QFZLLMSFL44BYTJSTG9B"  # 访问密钥ID（支持环境变量，公共桶可留空）
+  secretAccessKey: "IMgvv9dZBkKFhMJYg3IQdhzhlIIBfXtp9Cg6cSym"  # 密钥（支持环境变量，公共桶可留空）
+  bucketName: ksgxx              # 桶名称
+  prefix: ""                        # 扫描前缀（用于过滤特定目录，留空表示扫描所有对象）
+  useSSL: false                   # 是否使用SSL加密连接
+
+excel:
+  fileName: s3_objects
+  maxRowsPerSheet: 1000000
+  splitFile: true
+
+database:
+  type: mysql
+  host: localhost
+  port: 3306
+  database: s3_scanner
+  username: root
+  password: password
+  tableName: s3_objects
+  batchSize: 1000
